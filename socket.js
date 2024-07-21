@@ -2,7 +2,9 @@ const http = require("http");
 const socketIo = require("socket.io");
 const axios = require("axios");
 const cors = require('cors')
-const server = http.createServer().listen(3003,'0.0.0.0', () => {
+const server = http.createServer((req,res)=>{
+  res.write("hello")
+}).listen(3003,'0.0.0.0', () => {
   console.log("Server is running on port 3003");
 });
 
