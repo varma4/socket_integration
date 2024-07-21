@@ -4,6 +4,7 @@ const axios = require("axios");
 const cors = require('cors')
 const server = http.createServer((req,res)=>{
   res.write("hello")
+  res.end()
 }).listen(3003, () => {
   console.log("Server is running on port 3003");
 });
