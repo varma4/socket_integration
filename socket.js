@@ -45,8 +45,8 @@ function socketInit() {
         const senderSocketId = userSocketMap.get(senderId);
 
         console.log(userSocketMap);
-        await axios.post("https://feastgram-mhil.onrender.com/messages", msg);
-        
+        const res = await axios.post("https://feastgram-mhil.onrender.com/messages", msg);
+        console.log(res);
         const createdPrivateMessage = {
           receiverId: {
             id: receiverId,
