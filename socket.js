@@ -3,8 +3,10 @@ const socketIo = require("socket.io");
 const axios = require("axios");
 const cors = require('cors')
 const server = http.createServer((req,res)=>{
-  res.write("hello")
-  res.end()
+  if (req.url === '/new-path') {
+    res.write("hi");
+    res.end()
+  } 
 }).listen(3003, () => {
   console.log("Server is running on port 3003");
 });
@@ -30,7 +32,7 @@ function socketInit() {
 
     socket.on("chatMessage", async (msg) => {
       try {
-        console.log("Chat message received:", msg);
+        // console.log("Chat message received:", msg);
         io.emit("chatMessage", msg);
       } catch (error) {
         console.error("Error saving chat message:", error);
@@ -47,7 +49,7 @@ function socketInit() {
         console.log(userSocketMap);
         const res = await axios.post("https://feastgram-mhil.onrender.com/api/v1/chats/messages", msg);
         // const res = await axios.post("http://localhost:3000/api/v1/chats/messages", msg);
-        console.log(res);
+        // console.log(res);
         const createdPrivateMessage = {
           receiverId: {
             id: receiverId,
