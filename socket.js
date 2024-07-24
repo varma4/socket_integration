@@ -61,7 +61,7 @@ function socketInit() {
           timeStamp: timeStamp,
         };
 
-        io.to(receiverSocketId).to(senderSocketId).emit("receivePrivate", createdPrivateMessage);
+        io.to(senderSocketId).to(receiverSocketId).emit("receivePrivate", createdPrivateMessage);
         
         // io.to(senderSocketId).emit("receivePrivate", msg);
       } catch (error) {
