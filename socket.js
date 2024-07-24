@@ -41,7 +41,7 @@ function socketInit() {
 
     socket.on("privateMessage", async (msg) => {
       try {
-        console.log("Private message received:", msg);
+        // console.log("Private message received:", msg);
         const { receiverId, senderId, message, timeStamp } = msg;
         const receiverSocketId = userSocketMap.get(receiverId);
         const senderSocketId = userSocketMap.get(senderId);
